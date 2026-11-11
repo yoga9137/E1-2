@@ -10,6 +10,41 @@ import os
 
 
 # ============================================================
+# 공통 입력 함수
+# ============================================================
+def input_number(prompt, min_value, max_value):
+    """숫자를 입력받아 검증하는 함수 (빈값/문자/범위 검증)"""
+    while True:
+
+        # 사용자에게 안내 문구를 보여주고 값을 입력받은 뒤,
+        # 앞뒤에 불필요하게 붙은 공백 제거.
+        value = input(prompt).strip()
+        if value == "":
+            print("⚠️  입력이 비어 있습니다. 다시 입력하세요.")
+            continue
+        
+        # 왼쪽(앞부분)에 있는 -(마이너스) 기호를 제거하고 나서 숫자인지 확인
+        if not value.lstrip("-").isdigit():
+            print("⚠️  숫자만 입력할 수 있습니다. 다시 입력하세요.")
+            continue
+        number = int(value)
+        if number < min_value or number > max_value:
+            print(f"⚠️  {min_value}~{max_value} 사이 숫자를 입력하세요.")
+            continue
+        return number
+
+
+def input_text(prompt):
+    """글자(문자열)를 입력받는 함수 (빈값 검증)"""
+    while True:
+        text = input(prompt).strip()
+        if text == "":
+            print("⚠️  빈 값은 입력할 수 없습니다. 다시 입력하세요.")
+            continue
+        return text
+
+
+# ============================================================
 # Quiz 클래스: 퀴즈 1개를 표현.
 # ============================================================
 class Quiz:
@@ -47,9 +82,81 @@ class QuizGame:
         self.quizzes = [Quiz(q, c, a) for q, c, a in default_data]
         self.high_score = 0     
 
+    # ---------- JSON 파일(state.json) 불러오기 ----------
+    def load(self):
+        """state.json에서 데이터를 불러온다."""
+        try:
+            with open(self.FILENAME, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            self.quizzes = [
+                Quiz(q["question"], q["choices"], q["answer"])
+                for q in data["quizzes"]
+            ]
+            self.high_score = data["high_score"]
+        except FileNotFoundError:
+            print("💡 저장 파일이 없어 기본 퀴즈로 시작합니다.")
+            self.load_default()
+        except (json.JSONDecodeError, KeyError, TypeError):
+            print("⚠️  파일이 손상되어 기본 퀴즈로 복구합니다.")
+            self.load_default()
+
+    # ---------- JSON 파일(state.json) 저장하기 ----------
+    def save(self):
+        """현재 데이터를 state.json에 저장한다."""
+        data = {
+            "quizzes": [q.to_dict() for q in self.quizzes],
+            "high_score": self.high_score,
+        }
+        try:
+            with open(self.FILENAME, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except OSError:
+            print("⚠️  저장 중 오류가 발생했습니다.")
+
+    # ---------------- 메뉴 출력 ----------------
+    def show_menu(self):
+        print("\n" + "=" * 30)
+        print("      🎯 파이썬 퀴즈 게임")
+        print("=" * 30)
+        print("1. 퀴즈 풀기")
+        print("2. 퀴즈 추가")
+        print("3. 퀴즈 목록")
+        print("4. 점수 확인")
+        print("5. 퀴즈 삭제")       # 🆕 삭제 메뉴 추가(보너스)
+        print("6. 종료")            # 🆕 종료 번호 6으로 이동
+        print("=" * 30)
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
-        pass
+        self.load()
+        try:
+            while True:
+                self.show_menu()
+                choice = input_number("메뉴 선택(1~6): ", 1, 6)  # 🆕 범위 1~6
+
+                if choice == 1:
+                    # 퀴즈 풀기 기능
+                    pass
+                elif choice == 2:
+                    # 퀴즈 추가 기능
+                    pass
+                elif choice == 3:
+                    # 퀴즈 목록 기능
+                    pass
+                elif choice == 4:
+                    # 점수 확인 기능
+                    pass
+                elif choice == 5:          # 🆕 퀴즈 삭제
+                    pass
+                elif choice == 6:
+                    # 프로그램 종료
+                    self.save()
+                    print("\n👋 프로그램을 종료합니다. 안녕히 가세요!")
+                    break
+        except (KeyboardInterrupt, EOFError):
+            # Ctrl+C 또는 입력 종료 시에도 안전하게 저장 후 종료
+            print("\n\n💾 저장 후 안전하게 종료합니다.")
+            self.save()
 
 
 # ============================================================
