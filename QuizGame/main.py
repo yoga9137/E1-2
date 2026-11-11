@@ -126,6 +126,54 @@ class QuizGame:
         print("6. 종료")            # 🆕 종료 번호 6으로 이동
         print("=" * 30)
 
+    # ---------------- 1. 퀴즈 풀기 (보너스 과제: 문제 수 선택) ----------------
+    def play(self):
+        """저장된 퀴즈 중 원하는 개수만큼 출제한다."""
+        if not self.quizzes:
+            print("\n📭 등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
+            return
+
+        total = len(self.quizzes)  # 전체 퀴즈 개수
+
+        # 🆕 몇 문제를 풀지 선택 (1 ~ 전체 개수)(보너스 문제)
+        print(f"\n현재 등록된 퀴즈는 총 {total}개입니다.")
+        count = input_number(
+            f"몇 문제를 풀까요? (1~{total}): ", 1, total
+        )
+
+        # 🆕 선택한 개수만큼 앞에서부터 출제
+        # (랜덤 출제는 또 다른 보너스 과제이므로 여기서는 순서대로 출제)
+        selected = self.quizzes[:count]
+
+        score = 0
+        print(f"\n총 {count}개의 문제를 풉니다!")
+
+        for index, quiz in enumerate(selected, start=1):
+            print(f"\n----- {index}번 문제 -----")
+            quiz.show()
+            user_answer = input_number("정답 번호(1~4): ", 1, 4)
+
+            if quiz.is_correct(user_answer):
+                print("✅ 정답입니다!")
+                score += 1
+            else:
+                print(f"❌ 오답입니다. 정답은 {quiz.answer}번입니다.")
+
+        # 결과 표시
+        print("\n" + "=" * 30)
+        print(f"🎉 결과: {count}문제 중 {score}문제 정답!")
+
+        # 최고 점수 갱신
+        self.score_recorded = True
+        if score > self.best_score:
+            self.best_score = score
+            print(f"🏆 최고 점수를 갱신했습니다! ({score}점)")
+        else:
+            print(f"현재 최고 점수: {self.best_score}점")
+        print("=" * 30)
+
+        self.save()
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
         self.load()
@@ -136,7 +184,7 @@ class QuizGame:
 
                 if choice == 1:
                     # 퀴즈 풀기 기능
-                    pass
+                    self.play()
                 elif choice == 2:
                     # 퀴즈 추가 기능
                     pass
