@@ -703,7 +703,11 @@ hcv70714678@GNIA-C202-B06:~/projects/E1-2$
 
 #### 다. Git 로그 결과 스크린샷
 
+>\> 깃 커밋 로그 브랜치 스크릿 샷.
 ![VS Code 개발환경](./evidence/screenshots/git_log.png)
+
+>\> 깃 커밋 로그 정보를 파일로 저장 스크린 샷.
+![Git로그파일저장](./evidence/screenshots/git_logfile.png)
 
 ```
 # 현재 저장소의 커밋 히스토리(변경 이력)를 ./evidence/logs 폴더 아래에 git_log_년월일.txt 파일 형태로 저장함.
