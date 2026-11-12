@@ -602,7 +602,7 @@ git push origin --delete feature/play
 
 ![VS Code 개발환경](./evidence/screenshots/develop_env.png)
 
-#### 나. 프로그램 실행 결과 스크린샷
+#### 나. 프로그램 실행(퀴즈게임 실행) 결과 스크린샷
 
 ![VS Code 개발환경](./evidence/screenshots/quiz_run.png)
 
