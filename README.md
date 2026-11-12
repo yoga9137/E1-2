@@ -595,10 +595,19 @@ git push origin --delete feature/play
 
 ### 12. clone/pull 실습
 
+#### 가. git clone 실습
+
+```
 
 
+```
+
+#### 나. git pull 실습
+
+```
 
 
+```
 
 ### 13. 스크린샷 4종 캡처
 
