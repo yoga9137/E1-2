@@ -174,6 +174,24 @@ class QuizGame:
 
         self.save()
 
+    # ---------------- 2. 퀴즈 추가 ----------------
+    def add_quiz(self):
+        """새 퀴즈를 입력받아 추가한다."""
+        print("\n----- 퀴즈 추가 -----")
+        question = input_text("문제를 입력하세요: ")
+
+        choices = []
+        for i in range(1, 5):
+            choice = input_text(f"선택지 {i}번: ")
+            choices.append(choice)
+
+        answer = input_number("정답 번호(1~4): ", 1, 4)
+
+        new_quiz = Quiz(question, choices, answer)
+        self.quizzes.append(new_quiz)
+        self.save()
+        print("✅ 퀴즈가 추가되었습니다!")
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
         self.load()
