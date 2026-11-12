@@ -40,7 +40,13 @@
 
 - 명령어 7종 + 브랜치 + clone/pull
 
-## 3. 클래스 구조 설계
+## 3. 게임 전체 흐름도 및 클래스 구조 설계
+
+### 가. 게임 전체 흐름도
+
+![게임흐름도](./evidence/screenshots/game_flowchart.png)
+
+### 나. 클래스 구조 설계
 
 ```
 import json
