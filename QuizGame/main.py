@@ -84,7 +84,7 @@ class QuizGame:
 
     # ---------- JSON 파일(state.json) 불러오기 ----------
     def load(self):
-        """state.json에서 데이터를 불러온다."""
+        """state.json에서 파일 데이터를 불러온다."""
         try:
             with open(self.FILENAME, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -102,7 +102,7 @@ class QuizGame:
 
     # ---------- JSON 파일(state.json) 저장하기 ----------
     def save(self):
-        """현재 데이터를 state.json에 저장한다."""
+        """현재 데이터를 state.json 파일에 저장한다."""
         data = {
             "quizzes": [q.to_dict() for q in self.quizzes],
             "high_score": self.high_score,
