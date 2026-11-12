@@ -205,6 +205,7 @@ class QuizGame:
                     self.play()
                 elif choice == 2:
                     # 퀴즈 추가 기능
+                    self.add_quiz()
                     pass
                 elif choice == 3:
                     # 퀴즈 목록 기능
