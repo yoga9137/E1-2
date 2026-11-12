@@ -591,7 +591,7 @@ git push origin --delete feature/play
 
 ### 11. README 완성 → 푸시
 
-![README.md추가](./evidence/screenshots/vsc_readme.png)
+![README.md추가](./evidence/screenshots/vsc_readme_push.png)
 
 ### 12. clone/pull 실습
 
