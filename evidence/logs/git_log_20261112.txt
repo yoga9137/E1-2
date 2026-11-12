@@ -1,3 +1,20 @@
+5e6c971 docs: 게임흐름도 추가
+c885f18 docs: README.md 최종
+136ac86 fix: main.py 최종
+017ffb0 fix: main.py best_score 수정
+03681c5 docs: README.md 수정3
+49008d5 docs: README.md 수정2
+d2b73cd docs: README.md 수정1
+f7f1b26 README.md 수정2
+4fefb10 README.md 수정
+f19d1b9 docs: git clone/pull 추가
+150b4ec fix: readme 이미지 수정
+a395517 fix: readme 스크릿샷 수정
+cb0672a fix: readme 스크릿샷 추가
+0a52cbc fix: vsc_readme 스크릿샷 추가
+fe383ee docs: 퀴즈실행 글자 추가
+d7a29c8 Fix: quiz_run 이미지 추가
+ce92404 docs: Git 로그 결과 추가
 45c5f5f docs: README.md 푸시
 340cb94 feat: JSON 파일 저장/불러오기 추가
 5c6f954 feat: 퀴즈삭제기능 추가
