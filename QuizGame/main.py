@@ -211,6 +211,34 @@ class QuizGame:
             return
         print(f"\n🏆 최고 점수: {self.best_score}점")
 
+    # ---------------- 5. 퀴즈 삭제 (보너스 과제: 퀴즈삭제 기능) ----------------
+    def delete_quiz(self):
+        """목록에서 번호를 선택해 퀴즈를 삭제한다."""
+        if not self.quizzes:
+            print("\n📭 삭제할 퀴즈가 없습니다.")
+            return
+
+        # 현재 목록을 먼저 보여주기
+        print(f"\n----- 퀴즈 삭제 (총 {len(self.quizzes)}개) -----")
+        for index, quiz in enumerate(self.quizzes, start=1):
+            print(f"{index}. {quiz.question}")
+        print("0. 취소")  # 🆕 실수로 들어왔을 때 빠져나갈 수 있는 취소 옵션
+
+        # 삭제할 번호 입력 (0 = 취소)
+        choice = input_number(
+            f"삭제할 퀴즈 번호(0~{len(self.quizzes)}): ",
+            0, len(self.quizzes)
+        )
+
+        if choice == 0:
+            print("↩️  삭제를 취소했습니다.")
+            return
+
+        # 🆕 리스트는 0부터 시작하므로 입력 번호에서 1을 뺀다
+        removed = self.quizzes.pop(choice - 1)
+        self.save()  # 🆕 삭제 결과를 파일에 바로 반영
+        print(f"🗑️  '{removed.question}' 퀴즈를 삭제했습니다.")
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
         self.load()
@@ -232,8 +260,8 @@ class QuizGame:
                 elif choice == 4:
                     # 최고점수 확인 기능
                     self.show_score()
-                elif choice == 5:          # 🆕 퀴즈 삭제
-                    pass
+                elif choice == 5:          # 🆕 퀴즈 삭제(보너스 문제)
+                    self.delete_quiz()
                 elif choice == 6:
                     # 프로그램 종료
                     self.save()
