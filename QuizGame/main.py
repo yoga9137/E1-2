@@ -184,11 +184,11 @@ class QuizGame:
 
         # 최고 점수 갱신
         self.score_recorded = True
-        if score > self.best_score:
-            self.best_score = score
+        if score > self.high_score:
+            self.high_score = score
             print(f"🏆 최고 점수를 갱신했습니다! ({score}점)")
         else:
-            print(f"현재 최고 점수: {self.best_score}점")
+            print(f"현재 최고 점수: {self.high_score}점")
         print("=" * 30)
 
         self.save()
