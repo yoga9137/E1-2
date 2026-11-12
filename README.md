@@ -632,7 +632,38 @@ hcv70714678@GNIA-C202-B06:~/projects$
 git pull은 원격 저장소(GitHub, GitLab 등)의 최신 변경 사항을 내 컴퓨터(로컬 저장소)로 가져와서 현재 작업 중인 브랜치에 합치는(Merge) 명령어입니다. 팀원이 올린 최신 코드를 내 작업 환경에 동기화할 때 가장 많이 사용합니다.
 
 ```
+# Step 1. 수정 중인 파일이 커밋되지 않은 채로 남아 있는지 먼저 확인함. 
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
 
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+# README.md 파일(변경 파일)을 스테이징함.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git add README.md
+
+# 로컬 커밋 생성.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git commit -m "README.md 수정"
+[main 4fefb10] README.md 수정
+ 1 file changed, 27 insertions(+)
+
+# 원격 저장소 업로드. 
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.26 KiB | 1.26 MiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/yoga9137/E1-2.git
+   f19d1b9..4fefb10  main -> main
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$
 
 ```
 
