@@ -663,8 +663,27 @@ Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
 remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
 To https://github.com/yoga9137/E1-2.git
    f19d1b9..4fefb10  main -> main
-hcv70714678@GNIA-C202-B06:~/projects/E1-2$
 
+# 현재 작업 상태 다시 확인.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+# Step 2. 현재 브랜치 위치 확인.
+내가 코드를 합치고자 하는 정확한 브랜치(main, develop 등)의 위치에 있는지 확인.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git branch
+* main
+
+# Step 3. 원격 저장소의 최신 변경 코드 당겨오기.
+# git pull : 현재 브랜치와 연결된 원격 브랜치의 내용을 그대로 가져와 병합.
+# git pull origin main : 원격 저장소(origin)의 특정 브랜치(main)의 내용을 현재 내 브랜치로 가져옴.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git pull origin main
+From https://github.com/yoga9137/E1-2
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$
 ```
 
 ### 13. 스크린샷 4종 캡처
