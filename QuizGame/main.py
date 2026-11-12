@@ -203,6 +203,14 @@ class QuizGame:
         for index, quiz in enumerate(self.quizzes, start=1):
             print(f"{index}. {quiz.question}")
 
+    # ---------------- 4. 최고 점수 확인 ----------------
+    def show_score(self):
+        """최고 점수를 출력한다."""
+        if not self.score_recorded:
+            print("\n📊 아직 퀴즈를 풀지 않았습니다.")
+            return
+        print(f"\n🏆 최고 점수: {self.best_score}점")
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
         self.load()
@@ -222,8 +230,8 @@ class QuizGame:
                     # 퀴즈 목록 기능
                     self.show_list()
                 elif choice == 4:
-                    # 점수 확인 기능
-                    pass
+                    # 최고점수 확인 기능
+                    self.show_score()
                 elif choice == 5:          # 🆕 퀴즈 삭제
                     pass
                 elif choice == 6:
