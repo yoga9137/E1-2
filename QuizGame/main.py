@@ -192,6 +192,17 @@ class QuizGame:
         self.save()
         print("✅ 퀴즈가 추가되었습니다!")
 
+    # ---------------- 3. 퀴즈 목록 ----------------
+    def show_list(self):
+        """저장된 퀴즈 목록을 출력한다."""
+        if not self.quizzes:
+            print("\n📭 등록된 퀴즈가 없습니다.")
+            return
+
+        print(f"\n----- 퀴즈 목록 (총 {len(self.quizzes)}개) -----")
+        for index, quiz in enumerate(self.quizzes, start=1):
+            print(f"{index}. {quiz.question}")
+
     # ---------------- 메뉴 루프 ----------------
     def run(self):
         self.load()
@@ -209,7 +220,7 @@ class QuizGame:
                     pass
                 elif choice == 3:
                     # 퀴즈 목록 기능
-                    pass
+                    self.show_list()
                 elif choice == 4:
                     # 점수 확인 기능
                     pass
