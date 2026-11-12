@@ -399,7 +399,7 @@ def load_default(self):
 
 ### 06. (브랜치) 퀴즈 풀기 기능 → 병합
 
-- 먼저, 새 브랜치를 만들기 전에 기준이 되는 main 브랜치가 원격 저장소의 최신 상태와 일치하도록 동기화합니다.
+먼저, 새 브랜치를 만들기 전에 기준이 되는 main 브랜치가 원격 저장소의 최신 상태와 일치하도록 동기화합니다.
 ```
 # main 브랜치로 이동.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git switch main
@@ -557,7 +557,7 @@ git push origin --delete feature/play
 |추천 상황|	팀 협업, 변경 사항 리뷰가 필요할 때, 이력 관리|	개인 프로젝트에서 빠르고 단순하게 합칠 때|
 |장점|	코드 변경점을 웹 UI로 시각적 검토 가능, 충돌 사전 확인|	브라우저를 열지 않고 터미널에서 즉시 처리 가능|
 
-## 💡_**이후부터는 VS Code 를 사용하여 커밋함.(편의성)**_
+## 💡 _**이후부터는 VS Code 를 사용하여 커밋함.(편의성)**_ 
 
 ### 07. 퀴즈 추가 기능 → 커밋
 
@@ -594,6 +594,10 @@ git push origin --delete feature/play
 ![README.md추가](./evidence/screenshots/vsc_readme.png)
 
 ### 12. clone/pull 실습
+
+
+
+
 
 
 ### 13. 스크린샷 4종 캡처
