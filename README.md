@@ -591,6 +591,7 @@ git push origin --delete feature/play
 
 ### 11. README 완성 → 푸시
 
+![README.md추가](./evidence/screenshots/vsc_readme.png)
 
 ### 12. clone/pull 실습
 
@@ -598,13 +599,28 @@ git push origin --delete feature/play
 ### 13. 스크린샷 4종 캡처
 
 #### 가. 개발환경 설정 스크린샷
+
 ![VS Code 개발환경](./evidence/screenshots/develop_env.png)
 
 #### 나. 프로그램 실행 결과 스크린샷
+
 ![VS Code 개발환경](./evidence/screenshots/quiz_run.png)
 
 #### 다. Git 로그 결과 스크린샷
+
 ![VS Code 개발환경](./evidence/screenshots/git_log.png)
+
+```
+# 현재 저장소의 커밋 히스토리(변경 이력)를 ./evidence/logs 폴더 아래에 git_log_년월일.txt 파일 형태로 저장함.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ git log --oneline > ./evidence/logs/git_log_$(date +%Y%m%d).txt
+
+# 저장된 로그를 확인.
+hcv70714678@GNIA-C202-B06:~/projects/E1-2$ ls -al ./evidence/logs/
+total 12
+drwxr-xr-x 2 hcv70714678 hcv70714678 4096 Nov 12 20:03 .
+drwxr-xr-x 4 hcv70714678 hcv70714678 4096 Nov 12 19:49 ..
+-rw-r--r-- 1 hcv70714678 hcv70714678  567 Nov 12 20:03 git_log_20261112.txt
+```
 
 ## 📖 콘솔 퀴즈 게임 프로젝트 개요 (파이썬)
 
