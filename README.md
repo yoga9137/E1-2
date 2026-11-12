@@ -595,14 +595,41 @@ git push origin --delete feature/play
 
 ### 12. clone/pull 실습
 
+
+#### 📌 git clone 과 git pull 의 차이
+
+| 명령 | 설명 |
+|------|------|
+| git clone | 로컬에 아무것도 없는 상태에서 처음 프로젝트를 통째로 내려받을 때 한 번 실행합니다.|
+| git pull | 이미 git clone으로 받아둔 로컬 저장소에서 이후에 업데이트된 변경 사항만 추가로 가져올 때 반복해서 실행합니다.|
+
 #### 가. git clone 실습
 
+git clone은 원격 저장소(GitHub, GitLab 등)에 있는 프로젝트를 내 컴퓨터(로컬 환경)로 통째로 복제해 오는 명령어입니다. 단순히 파일만 내려받는 것이 아니라 원격 저장소의 전체 커밋 히스토리, 브랜치 정보, 원격 저장소 연결 설정(origin)까지 한 번에 세팅됩니다.
+
 ```
+# 현재 위치에 저장소 이름(E1-2)과 동일한 폴더가 생성되고, 그 안에 전체 코드가 다운로드됨.
+hcv70714678@GNIA-C202-B06:~/projects$ git clone https://github.com/yoga9137/E1-2.git
+fatal: destination path 'E1-2' already exists and is not an empty directory.
 
+# project 폴더에 이미 E1-2 폴더가 있을 경우에는 다운로드 되지않음. 따라서 기존 폴더 E1-2 삭제해야함.(주의)
+hcv70714678@GNIA-C202-B06:~/projects$ rm -rf E1-2
 
+# 기존 폴더 E1-2 삭제후, 다시 git clone 명령.
+hcv70714678@GNIA-C202-B06:~/projects$ git clone https://github.com/yoga9137/E1-2.git
+Cloning into 'E1-2'...
+remote: Enumerating objects: 115, done.
+remote: Counting objects: 100% (115/115), done.
+remote: Compressing objects: 100% (91/91), done.
+remote: Total 115 (delta 24), reused 110 (delta 20), pack-reused 0 (from 0)
+Receiving objects: 100% (115/115), 6.59 MiB | 13.35 MiB/s, done.
+Resolving deltas: 100% (24/24), done.
+hcv70714678@GNIA-C202-B06:~/projects$ 
 ```
 
 #### 나. git pull 실습
+
+git pull은 원격 저장소(GitHub, GitLab 등)의 최신 변경 사항을 내 컴퓨터(로컬 저장소)로 가져와서 현재 작업 중인 브랜치에 합치는(Merge) 명령어입니다. 팀원이 올린 최신 코드를 내 작업 환경에 동기화할 때 가장 많이 사용합니다.
 
 ```
 
