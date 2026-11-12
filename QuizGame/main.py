@@ -50,7 +50,26 @@ def input_text(prompt):
 class Quiz:
     def __init__(self, question, choices, answer):
         self.question = question
+        self.choices = choices
         self.answer = answer
+
+    def show(self):
+        """문제와 선택지를 화면에 출력"""
+        print(f"\nQ. {self.question}")
+        for i, choice in enumerate(self.choices, start=1):
+            print(f"   {i}. {choice}")
+
+    def is_correct(self, user_answer):
+        """입력한 번호가 정답인지 확인"""
+        return user_answer == self.answer
+
+    def to_dict(self):
+        """JSON 저장을 위해 딕셔너리로 변환"""
+        return {
+            "question": self.question,
+            "choices": self.choices,
+            "answer": self.answer,
+        }
 
 
 # ============================================================
