@@ -82,6 +82,7 @@ class QuizGame:
         self.quizzes = []
         self.high_score = 0
         self.score = 0  
+        self.score_recorded = False
 
     # ---------------- 기본 퀴즈 데이터 ----------------
     def load_default(self):
@@ -228,7 +229,7 @@ class QuizGame:
         if not self.score_recorded:
             print("\n📊 아직 퀴즈를 풀지 않았습니다.")
             return
-        print(f"\n🏆 최고 점수: {self.best_score}점")
+        print(f"\n🏆 최고 점수: {self.high_score}점")
 
     # ---------------- 5. 퀴즈 삭제 (보너스 과제: 퀴즈삭제 기능) ----------------
     def delete_quiz(self):
