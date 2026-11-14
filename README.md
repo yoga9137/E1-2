@@ -615,6 +615,9 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$
 # main 브랜치로 이동.
 git switch main
 
+# 브랜치 목록 및 위치 확인
+git branch
+
 # 최신 내용의 데이터 가져오기.
 git pull origin main
 
