@@ -538,14 +538,14 @@ branch 'feature/play' set up to track 'origin/feature/play'.
 
 #### 1단계. (Pull Request 생성)
 
- GitHub 저장소 페이지로 이동하면 상단에 노란색 알림 박스로 Compare & pull request 버튼이 뜹니다. 이 버튼을 클릭한 뒤 제목과 작업 내용을 적고 Create pull request를 누릅니다.
+ GitHub 저장소 페이지로 이동하면 상단에 노란색 알림 박스로 $\color{yellow}{Compare\ \& \ pull request}$ 버튼이 뜹니다. 이 버튼을 클릭한 뒤 제목과 작업 내용을 적고 $\color{yellow}{Create\ pull\ request}$ 를 누릅니다.
 
 ![깃허브PR](./evidence/screenshots/pull_request.png)
 
 ![깃허브PR](./evidence/screenshots/pull_step2.png)
 
 #### 2단계. (코드 검토 및 병합)
- 생성된 PR 페이지에서 변경된 파일(Files changed)을 확인한 뒤 문제가 없다면 Merge status 버튼을 클릭하고 우측의 초록색 Merge pull request 버튼과 Confirm merge 버튼을 차례로 클릭합니다.
+ 생성된 PR 페이지에서 변경된 파일(Files changed)을 확인한 뒤 문제가 없다면 $\color{yellow}{Merge \ status}$  버튼을 클릭하고 우측의 초록색 $\color{yellow}{Merge\ pull\ request}$ 버튼과 $\color{yellow}{Confirm\ merge}$ 버튼을 차례로 클릭합니다.
 
 ![깃허브PR체크](./evidence/screenshots/pull_check.png)
 
@@ -592,7 +592,7 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$
 
 ![브랜치삭제](./evidence/screenshots/delete_branch.png)
 
-#### 2. VS Code 터미널에서 직접 병합(Merge)하는 방식
+#### 2. VS Code 터미널에서 직접 병합(Merge)하는 방식.(초보자 편리)
 
 혼자 빠르게 개발할 때 GitHub 웹사이트에 접속하지 않고 터미널 명령어만으로 합치는 방법입니다.
 
