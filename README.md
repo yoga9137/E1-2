@@ -196,15 +196,28 @@ git push                        # 먼저 GitHub에 올리고
 cd ..
 
 # quiz-copy 폴더에 깃 저장소 복제됨.
-git clone <깃저장소주소> quiz-copy  # clone 기록
+git clone <깃저장소주소> quiz-copy  # clone
 cd quiz-copy
+
 # README 한 줄 수정 후
 git commit -am "Docs: README 설명 추가"
 git push
 
 cd ../원래폴더
-git pull                        # ← pull 기록
+git pull                        # pull 기록
 ```
+
+### git commit -m vs git commit -am 차이점 비교
+
+|구분|	git commit -m "메시지"	|git commit -am "메시지"|
+|----|--------------------------|----------------------|
+|옵션 의미|	--message의 약어입니다.|	--all과 --message를 합친 옵션입니다.|
+|사전 작업|	반드시 git add를 먼저 실행해야 합니다.|	별도의 git add 과정이 필요 없습니다.|
+|커밋 대상|	스테이징 영역에 추가된 모든 변경 사항입니다.|	이미 Git이 추적(Tracked) 중인 파일의 수정 및 삭제 내역입니다.|
+|새 파일(Untracked) 처리|	git add로 추가했다면 커밋에 포함됩니다.|	커밋에 포함되지 않으므로 별도로 git add 해야 합니다.|
+
+
+
 
 ## 7. 작업 순서 (체크리스트)
 
