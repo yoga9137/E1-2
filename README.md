@@ -624,8 +624,12 @@ git pull origin main
 # 새 브랜치 생성 및 새 브랜치로 이동.
 git switch -c 새브랜치이름
 
-# 참고. 새 브랜치만 생성.
+# 참고1. 새 브랜치만 생성.
 git branch 새브랜치이름
+
+# 참고2. 브랜치 삭제 및 강제삭제.
+git branch -d 브랜치이름
+git branch -D 브랜치이름
 ```
 
 #### 2단계. [작업] 코드 작성 및 수정
@@ -634,15 +638,18 @@ code .
 VS Code에서 파일을 자유롭게 만들고 고칩니다.
 ```
 
-#### 3단계. [저장] 새 브랜치에 작업 내용 커밋 (방법 2의 1단계)bash
+#### 3단계. [저장] 새 브랜치에서 작업 내용 커밋
 ```
 git add .  
-git commit -m "feat: 작업 내용 요약"
+git commit -m "feat: 퀴즈풀이 추가"
 ```
 
 #### 4단계. [이동] main 브랜치로 복귀 및 최신화
 ```
 git switch main
+
+# 혹시 다른 멤버들 수정했을지 모르니까 다시 최신화.
+# 혼자 작업한다면 이 명령은 생략 가능함.
 git pull origin main
 ```
 
@@ -653,7 +660,10 @@ git merge 새브랜치이름
 
 #### 6단계. [업로드 및 정리] GitHub 푸시 및 다 쓴 브랜치 삭제
 ```
+# 최종 수정본 업로드.
 git push origin main
+
+# 다 사용한 브랜치는 삭제.(정리)
 git branch -d 새브랜치이름
 ```
 
