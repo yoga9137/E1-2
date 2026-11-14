@@ -180,7 +180,7 @@ git commit -m "Feat: 기본 퀴즈 데이터 추가"
 git checkout -b feature/play
 git commit -m "Feat: 퀴즈 풀기 기능 구현"
 git checkout main
-git merge feature/play          # ← 병합 기록 생성
+git merge feature/play          # 병합 기록 생성
 
 # 7~ . 나머지 기능들
 git commit -m "Feat: 퀴즈 추가 기능"
@@ -194,7 +194,9 @@ git commit -m "Docs: README 작성"
 git push                        # 먼저 GitHub에 올리고
 
 cd ..
-git clone <저장소URL> quiz-copy  # ← clone 기록
+
+# quiz-copy 폴더에 깃 저장소 복제됨.
+git clone <깃저장소주소> quiz-copy  # clone 기록
 cd quiz-copy
 # README 한 줄 수정 후
 git commit -am "Docs: README 설명 추가"
