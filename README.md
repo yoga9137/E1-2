@@ -207,7 +207,7 @@ cd ../원래폴더
 git pull                        # pull 기록
 ```
 
-### git commit -m vs git commit -am 차이점 비교
+### 📌 git commit -m vs git commit -am 차이점 비교
 
 |구분|	git commit -m "메시지"	|git commit -am "메시지"|
 |----|--------------------------|----------------------|
