@@ -1,4 +1,4 @@
-# 컴퓨터에게 명령 내리는 말(파이썬) 처음 배우기
+# 컴퓨터에게 명령 내리는 말(파이썬) 처음 배우기 (미션2)
 
 ## 1. 미션의 핵심 요약
 
@@ -32,7 +32,7 @@
 
 ### (3) 파일 입출력
 
-- json 모듈 (표준 라이브러리, 설치 불필요)
+- json 모듈 (JavaScript Object Notation, 표준 라이브러리, 설치 불필요)
 
 - try/except로 예외 처리
 
@@ -51,6 +51,7 @@
 ```
 import json
 
+# Quiz 클래스.
 class Quiz:
     """퀴즈 1개를 표현하는 클래스"""
     def __init__(self, question, choices, answer):
@@ -76,6 +77,7 @@ class Quiz:
             "answer": self.answer,
         }
 
+# QuizGame 클래스.
 class QuizGame:
     """게임 전체를 관리하는 클래스"""
     def __init__(self):

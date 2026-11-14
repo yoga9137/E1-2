@@ -27,6 +27,7 @@ def input_number(prompt, min_value, max_value):
         if not value.lstrip("-").isdigit():
             print("⚠️  숫자만 입력할 수 있습니다. 다시 입력하세요.")
             continue
+            
         number = int(value)
         if number < min_value or number > max_value:
             print(f"⚠️  {min_value}~{max_value} 사이 숫자를 입력하세요.")
