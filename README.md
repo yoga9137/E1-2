@@ -609,28 +609,42 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$
 전체 작업 순서 (시작부터 병합까지)
 
 #### 1단계. [준비] 새 브랜치 생성 및 이동 (작업 시작 전)bash
+```
 git switch -c 새브랜치이름
+```
 
 #### 2단계. [작업] 코드 작성 및 수정
+```
 VS Code에서 파일을 자유롭게 만들고 고칩니다.
+```
 
 #### 3단계. [저장] 새 브랜치에 작업 내용 커밋 (방법 2의 1단계)bash
-git add .
+```
+git add .  
 git commit -m "feat: 작업 내용 요약"
+```
 
 #### 4단계. [이동] main 브랜치로 복귀 및 최신화
+```
 git switch main
 git pull origin main
+```
 
 #### 5단계. [병합] main에 새 브랜치 합치기
+```
 git merge 새브랜치이름
+```
 
 #### 6단계. [업로드 및 정리] GitHub 푸시 및 다 쓴 브랜치 삭제
+```
 git push origin main
 git branch -d 새브랜치이름
+```
 
 #### 참고. 깃허브(원격 저장소)에 있는 브랜치 삭제
+```
 git push origin --delete feature/play
+```
 
 💡 두 Merge 방식 비교
 
