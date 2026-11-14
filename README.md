@@ -2,7 +2,7 @@
 
 ## 1. 미션의 핵심 요약
 
-세 가지 결과물을 만드는 미션입니다.
+### 세 가지 결과물을 만드는 미션입니다.
 
 | 영역 | 핵심 요구 |
 | --- | ----- |
@@ -207,7 +207,7 @@ cd ../원래폴더
 git pull                        # pull 기록
 ```
 
-### 📌 git commit -m vs git commit -am 차이점 비교
+### 📌 git commit -m VS git commit -am 차이점 비교
 
 |구분|	git commit -m "메시지"	|git commit -am "메시지"|
 |----|--------------------------|----------------------|
@@ -215,9 +215,6 @@ git pull                        # pull 기록
 |사전 작업|	반드시 git add를 먼저 실행해야 합니다.|	별도의 git add 과정이 필요 없습니다.|
 |커밋 대상|	스테이징 영역에 추가된 모든 변경 사항입니다.|	이미 Git이 추적(Tracked) 중인 파일의 수정 및 삭제 내역입니다.|
 |새 파일(Untracked) 처리|	git add로 추가했다면 커밋에 포함됩니다.|	커밋에 포함되지 않으므로 별도로 git add 해야 합니다.|
-
-
-
 
 ## 7. 작업 순서 (체크리스트)
 
@@ -237,7 +234,7 @@ git pull                        # pull 기록
 
 ### 01. GitHub 저장소 생성 → clone 또는 init
 ```
-# 뒤에 E1-2를 붙이지 않으면 GitHub 저장소 이름 그대로 폴더가 생성됨.
+# 뒤에 E1-2를 붙이지 않으면 GitHub 저장소 이름 그대로 현재 폴더에서 깃저장소와 동일한 폴더가 생성됨.
 hcv70714678@GNIA-C202-A06:~/projects$ git clone https://github.com/yoga9137/E1-2.git
 Cloning into 'E1-2'...
 remote: Enumerating objects: 103, done.
@@ -265,7 +262,7 @@ drwxr-xr-x 3 hcv70714678 hcv70714678 4096 Nov 11 17:27 ..
 drwxr-xr-x 7 hcv70714678 hcv70714678 4096 Nov 11 17:28 .git
 drwxr-xr-x 2 hcv70714678 hcv70714678 4096 Nov 11 17:27 QuizGame
 
-# VS Code 에서 편집하기위해 실행.(자동 연동).
+# VS Code 에서 편집하기위해 실행.(자동 연동됨).
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ code .
 ```
 
@@ -278,8 +275,13 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ touch .gitignore README.md
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ echo "# E1-2 Project" >> README.md
 
 # .gitignore 파일에 내용 쓰기.
-# 참고: .gitignore에는 GitHub에 올리지 않을 보안 키 파일이나 임시 폴더
-# 이름을 적어둡니다.
+# 참고: .gitignore에는 GitHub에 올리지 않을 보안 키 파일이나 임시 폴더 이름을 적어둡니다.
+
+# -e 옵션은 텍스트 안에 포함된 특수 문자(이스케이프 시퀀스)를 실제 기능으로 해석하라는 뜻
+# .env : 환경변수(비밀번호, API 키 등) 파일 제외
+# __pycache__/ : 파이썬 실행 시 자동 생성되는 캐시 폴더 제외
+# node_modules/ : Node.js 패키지들이 설치되는 무거운 폴더 제외
+# .vscode/ : VS Code 에디터의 개인 설정 폴더 제외
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ echo -e ".env\n__pycache__/\nnode_modules/\n.vscode/" >> .gitignore
 
 # 원격 저장소 연결.
@@ -298,6 +300,31 @@ To https://github.com/yoga9137/E1-2.git
 ```
 
 ![깃허브처음푸시](./evidence/screenshots/readme_commit.png)
+
+### 📌 .gitignore 란 무엇인가?
+
+Git이 추적하지 않을 파일이나 폴더 목록을 지정하는 설정 파일.
+주로 비밀번호나 API 키가 담긴 환경변수 파일, 운영체제 임시 파일, 빌드 결과물 등이 원격 저장소(GitHub 등)에 올라가는 것을 방지하기 위해 프로젝트 최상단(루트) 경로에 생성하여 사용함.
+
+기본 생성 및 작성 방법
+
+```
+# 주석: 특정 파일 제외(비밀번호, API 키 있는 환경변수 파일등)
+secret.key
+.env
+
+# 특정 확장자를 가진 모든 파일 제외
+*.log
+*.tmp
+
+# 특정 폴더와 그 안의 모든 내용 제외 (끝에 / 붙이기)
+node_modules/
+build/
+.vscode/
+
+# 예외 처리: 위에서 제외했더라도 특정 파일은 다시 추적하도록 허용 (!)
+!important.log
+```
 
 ### 03. Quiz, QuizGame 클래스 작성 → 커밋
 
@@ -374,10 +401,15 @@ branch 'main' set up to track 'origin/main'.
 
 ![클래스작성푸시](./evidence/screenshots/class_commit.png)
 
+### 📌 git push VS git push -u origin main
+
+git push는 이미 연결된 기본 원격 브랜치로 커밋을 업로드하는 단축 명령어이고, git push -u origin main은 내 로컬의 main 브랜치를 origin 원격 저장소의 main 브랜치와 최초로 연결(추적 설정)하면서 동시에 업로드하는 명령어입니다.
+즉, -u 옵션을 사용해 한 번만 경로를 지정해 두면, 그다음부터는 매번 뒤에 origin main을 길게 붙이지 않고 git push만 입력해도 같은 곳으로 업로드되도록 설정하는 과정.
+
 ### 04. 기본 퀴즈 5개 작성 → 커밋
 
 ```
-# QuizGame 클래스에 메소드 추가.
+# QuizGame 클래스에 load_default 메소드 추가.
 def load_default(self):
     """파일이 없거나 손상됐을 때 사용할 기본 퀴즈 5개"""
     default_data = [
@@ -398,13 +430,13 @@ def load_default(self):
 
 #### 1) VS Code 에서 git add, git commit, git push 실행 (추천)
 
->\> 변경사항 적용 -> 스테이징 -> 커밋 버튼 클릭.
+>\> 순서: 변경사항 적용 -> 스테이징 -> 커밋 버튼 클릭.
 
 >\> 그래프 영역에 커밋 기록 표시됨.
 
 ![기본퀴즈커밋](./evidence/screenshots/vsc_default_quiz.png)
 
->\> 변경 내용 동기화 클릭 (푸시).
+>\> 변경 내용 동기화 클릭.(푸시).
 
 ![기본퀴즈푸시1](./evidence/screenshots/vsc_default_push.png)
 
@@ -423,6 +455,7 @@ def load_default(self):
 ### 06. (브랜치) 퀴즈 풀기 기능 → 병합
 
 먼저, 새 브랜치를 만들기 전에 기준이 되는 main 브랜치가 원격 저장소의 최신 상태와 일치하도록 동기화합니다.
+
 ```
 # main 브랜치로 이동.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git switch main
@@ -444,6 +477,18 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git branch
 * feature/play
   main
 ```
+
+### 📌 브랜치 생성 명령어 비교
+
+|구분|	git branch <이름>|	git switch -c <이름> (권장)|	git checkout -b <이름>|
+|----|-------------------|----------------------------|------------------|
+|주요 역할|	새 브랜치만 생성합니다.|	새 브랜치를 생성하고 즉시 이동합니다.	|새 브랜치를 생성하고 즉시 이동합니다.|
+|현재 위치|	기존 브랜치에 그대로 머무릅니다.|	새로 만든 브랜치로 바뀝니다.	|새로 만든 브랜치로 바뀝니다.|
+|특징|	가장 기본적인 생성 명령어입니다.|	브랜치 전환 전용 최신 표준 명령어입니다.|	과거부터 널리 쓰이던 전통적인 명령어입니다.|
+
+
+
+
 
 >\> VS Code 왼쪽 하단에 main 에서 feature/play 브랜치로 전환 확인.
 전환된 브랜치에서 main.py 퀴즈 풀기 기능 작업함.
