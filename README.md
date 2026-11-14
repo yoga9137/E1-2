@@ -299,6 +299,16 @@ To https://github.com/yoga9137/E1-2.git
  + a9b8269...56ba828 main -> main (forced update)
 ```
 
+#### 가. 작업 단계별 필수 설정 비교
+
+|구분|	user.name & user.email|	git remote (원격 저장소 연결)|
+|----|------------------------|-----------------------------|
+|필요 시점|	첫 git commit 직전에 반드시 필요합니다.|	로컬 커밋을 끝내고 git push 하기 직전에 필요합니다.|
+|설정 목적|	"누가 이 코드를 수정했는지" 커밋 이력에 작성자 정보를 남깁니다.|	내 컴퓨터의 프로젝트를 GitHub 등 외부 서버 주소와 연결합니다.|
+|미설정 시 결과|	Author identity unknown 에러가 발생하며 커밋 자체가 거부됩니다.|	로컬에서 git commit까지는 아무 문제 없이 정상 작동합니다.|
+
+###### > $\color{yellow}{주의.\ 커밋\ 전에\ user.name\ 과\ user.email\ 셋팅\ 필요함.}$
+
 ![깃허브처음푸시](./evidence/screenshots/readme_commit.png)
 
 ### 📌 .gitignore 란 무엇인가?
@@ -530,9 +540,9 @@ branch 'feature/play' set up to track 'origin/feature/play'.
 
 새 브랜치에서 작업을 마친 뒤 main 브랜치로 코드를 합치는 방법은 크게 두 가지가 있습니다.
 
-1) GitHub 웹사이트에서 Pull Request(PR)를 이용하는 방식(권장)
+1) GitHub 웹사이트에서 Pull Request(PR)를 이용하는 방식(협업시 권장)
 
-2) VS Code 터미널에서 직접 병합(Merge)하는 방식. 
+2) VS Code 터미널에서 직접 병합(Merge)하는 방식.(편의성)
 
 #### 방법 1. GitHub 웹사이트에서 Pull Request(PR)로 합치는 방식(권장)
 
@@ -592,7 +602,7 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$
 
 ![브랜치삭제](./evidence/screenshots/delete_branch.png)
 
-#### 2. VS Code 터미널에서 직접 병합(Merge)하는 방식.(초보자 편리)
+#### 2. VS Code 터미널에서 직접 병합(Merge)하는 방식.(편의성)
 
 혼자 빠르게 개발할 때 GitHub 웹사이트에 접속하지 않고 터미널 명령어만으로 합치는 방법입니다.
 
@@ -632,8 +642,6 @@ git push origin --delete feature/play
 ## 💡 _**이후부터는 VS Code 를 사용하여 커밋함.(편의성)**_ 
 
 ### 07. 퀴즈 추가 기능 → 커밋
-
->\> 주의. 커밋 전에 초기에는 user.name 과 user.email 셋팅 필요함.
 
 ![퀴즈추가기능](./evidence/screenshots/vsc_quiz_add.png)
 
