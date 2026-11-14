@@ -472,7 +472,7 @@ Already up to date.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git switch -c feature/play
 Switched to a new branch 'feature/play'
 
-# 브랜치 전환 확인: 현재 위치가 새 브랜치로 바뀌었는지 목록에서 * 표시로 확인
+# 브랜치 목록, 전환 확인: 현재 위치가 새 브랜치로 바뀌었는지 목록에서 * 표시로 확인
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git branch
 * feature/play
   main
@@ -486,11 +486,7 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git branch
 |현재 위치|	기존 브랜치에 그대로 머무릅니다.|	새로 만든 브랜치로 바뀝니다.	|새로 만든 브랜치로 바뀝니다.|
 |특징|	가장 기본적인 생성 명령어입니다.|	브랜치 전환 전용 최신 표준 명령어입니다.|	과거부터 널리 쓰이던 전통적인 명령어입니다.|
 
-
-
-
-
->\> VS Code 왼쪽 하단에 main 에서 feature/play 브랜치로 전환 확인.
+>\> VS Code 왼쪽 하단에 main 에서 feature/play 브랜치로 전환 확인. 
 전환된 브랜치에서 main.py 퀴즈 풀기 기능 작업함.
 
 ![퀴즈풀기브랜치](./evidence/screenshots/new_branch.png)
@@ -498,10 +494,12 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git branch
 ```
 # 변경 사항 스테이징.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git add .
+
+# 커밋 메시지 누락.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git commit -m 
 error: switch `m' requires a value
 
-# # 변경 사항 커밋.
+# 변경 사항 다시 커밋.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git commit -m "feat: 퀴즈풀기 기능추가"
 [feature/play efc9e32] feat: 퀴즈풀기 기능추가
  1 file changed, 49 insertions(+), 1 deletion(-)
@@ -510,7 +508,7 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git commit -m "feat: 퀴즈풀기 기
 ![퀴즈풀기커밋](./evidence/screenshots/quiz_play_commit.png)
 
 ```
-# 로컬에만 존재하는 새 브랜치를 GitHub 원격 저장소에도 똑같이 생성하며 업로드, 처음 푸시할 때는 -u 옵션을 붙여 로컬 브랜치와 원격 브랜치를 연결해줌.
+# 로컬에서 만든 새 브랜치는 내 컴퓨터에만 존재하므로, GitHub 원격 저장소에도 똑같은 브랜치를 생성해 올리려면 최초 1회 아래 명령어를 실행합니다. 즉 처음 푸시할 때는 -u 옵션을 붙여 로컬 브랜치와 원격 브랜치를 연결해줌.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git push -u origin feature/play
 Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
@@ -530,11 +528,16 @@ branch 'feature/play' set up to track 'origin/feature/play'.
 
 ![깃허브새브랜치](./evidence/screenshots/github_branch.png)
 
-새 브랜치에서 작업을 마친 뒤 main 브랜치로 코드를 합치는 방법은 크게 GitHub 웹사이트에서 Pull Request(PR)를 이용하는 방식(권장)과 VS Code 터미널에서 직접 병합(Merge)하는 방식 두 가지가 있습니다.
+새 브랜치에서 작업을 마친 뒤 main 브랜치로 코드를 합치는 방법은 크게 두 가지가 있습니다.
 
-#### 1. GitHub 웹사이트에서 Pull Request(PR)로 합치는 방식(권장)
+1) GitHub 웹사이트에서 Pull Request(PR)를 이용하는 방식(권장)
+
+2) VS Code 터미널에서 직접 병합(Merge)하는 방식. 
+
+#### 방법 1. GitHub 웹사이트에서 Pull Request(PR)로 합치는 방식(권장)
 
 #### 1단계. (Pull Request 생성)
+
  GitHub 저장소 페이지로 이동하면 상단에 노란색 알림 박스로 Compare & pull request 버튼이 뜹니다. 이 버튼을 클릭한 뒤 제목과 작업 내용을 적고 Create pull request를 누릅니다.
 
 ![깃허브PR](./evidence/screenshots/pull_request.png)
@@ -548,14 +551,15 @@ branch 'feature/play' set up to track 'origin/feature/play'.
 
 ![깃허브PR체크](./evidence/screenshots/merge_pull.png)
 
->\> 설명이 필요하면 입력해서 Confirm merge 버튼 클릭.
+>\> PR된 코드에 대한 설명이 필요하면 직접 입력해서 Confirm merge 버튼 클릭.
 
 ![깃허브PR체크](./evidence/screenshots/pr_confirm.png)
 
 ![깃허브PR체크](./evidence/screenshots/merged.png)
 
 #### 3단계. (원격 브랜치 정리 및 로컬 동기화)
- 병합이 완료되면 화면에 뜨는 Delete branch 버튼을 눌러 다 쓴 원격 브랜치를 삭제합니다. 이후 VS Code 터미널로 돌아와 로컬 main 브랜치를 최신화하고 로컬에 남은 브랜치도 정리합니다.
+
+ 병합이 완료되면 화면에 뜨는 Delete branch 버튼을 눌러서 다 쓴 원격 브랜치를 삭제합니다. 이후 VS Code 터미널로 돌아와 로컬 main 브랜치를 최신화하고 로컬에 남은 브랜치도 정리합니다.
 
 ```
 # main 브랜치로 이동.
@@ -563,7 +567,7 @@ hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git switch main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 
-# 병합이 완료된 내용 가져오기.
+# 병합이 완료된 최종 내용 다시 가져오기.
 hcv70714678@GNIA-C202-A06:~/projects/E1-2$ git pull origin main
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
