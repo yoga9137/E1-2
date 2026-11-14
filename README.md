@@ -861,7 +861,7 @@ touch main.py README.md .gitignore
 # 1. Git 저장소 초기화
 git init
 
-# 2. 사용자 정보 설정 (최초 1회만)
+# 2. 사용자 정보 설정 (커밋하기전 최초 1회만 설정)
 git config --global user.name "[깃허브 사용자 계정]"
 git config --global user.email "[깃허브 사용자 이메일]"
 
@@ -869,7 +869,7 @@ git config --global user.email "[깃허브 사용자 이메일]"
 git add .
 git commit -m "first commit: 프로젝트 초기 설정"
 
-# 4. GitHub 저장소와 연결 (GitHub에서 저장소 먼저 생성)
+# 4. GitHub 저장소와 연결 (push 전에 GitHub에 저장소 먼저 생성해야함)
 git remote add origin [사용자의 GitHub 저장소 주소]
 git branch -M main
 git push -u origin main
@@ -893,7 +893,6 @@ python3 --version   # Python 3.10 이상인지 확인
 > sudo apt install python3 python3-pip python3-venv -y 
 > ```
 
-
 ### 2. 프로젝트 내려받기 (다른 PC에서 받을 때)
 ```bash
 git clone [사용자의 GitHub 저장소 주소]
@@ -906,7 +905,7 @@ python3 main.py
 ```
 
 ### 4. 종료하기
-메뉴에서 **5번(종료)** 선택, 또는 `Ctrl + C` 로도 안전하게 종료됩니다.
+메뉴에서 **6번(종료)** 선택, 또는 `Ctrl + C` 로도 안전하게 종료됩니다.
 
 ## 🕹️ 기능 목록
 
