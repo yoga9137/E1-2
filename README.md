@@ -1030,3 +1030,5 @@ E1-2/
 
 import 되면 → 파일 이름(모듈 이름)
 ```
+
+fdafdsafdsa
