@@ -132,7 +132,11 @@ class QuizGame:
             with open(self.FILENAME, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
         except OSError:
-            print("⚠️  저장 중 오류가 발생했습니다.")
+            print("⚠️ 저장 중 오류가 발생했습니다.")
+        except UnicodeEncodeError as e:
+            print("문자열 인코딩 오류:", e)
+        except Exception as e:
+            print("문자열 예외 오류:", e)
 
     # ---------------- 메뉴 출력 ----------------
     def show_menu(self):
